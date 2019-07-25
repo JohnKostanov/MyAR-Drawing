@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,21 +59,20 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RK5-mG-jKn">
-                                <rect key="frame" x="16" y="618" width="158" height="29"/>
+                                <rect key="frame" x="16" y="618" width="170" height="29"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KaD-5l-R64">
-                                    <rect key="frame" x="0.0" y="0.0" width="158" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="29"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAH-ye-saP">
-                                            <rect key="frame" x="0.0" y="0.0" width="158" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="29"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Ldw-TI-gOS">
-                                                <rect key="frame" x="0.0" y="0.0" width="158" height="29"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ldw-TI-gOS">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jVE-nl-i8i">
-                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="29"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jVE-nl-i8i">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="29"/>
                                                         <segments>
                                                             <segment title="Freeform"/>
                                                             <segment title="Plane"/>
@@ -85,6 +84,12 @@
                                                         </connections>
                                                     </segmentedControl>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="jVE-nl-i8i" firstAttribute="top" secondItem="Ldw-TI-gOS" secondAttribute="top" id="5hS-wp-edS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jVE-nl-i8i" secondAttribute="trailing" id="6rc-9O-T3e"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jVE-nl-i8i" secondAttribute="bottom" constant="1" id="Esi-5V-UxN"/>
+                                                    <constraint firstItem="jVE-nl-i8i" firstAttribute="leading" secondItem="Ldw-TI-gOS" secondAttribute="leading" id="GBk-i9-Fvp"/>
+                                                </constraints>
                                             </view>
                                             <vibrancyEffect>
                                                 <blurEffect style="light"/>
@@ -93,7 +98,7 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="158" id="5d0-eI-fhj"/>
+                                    <constraint firstAttribute="width" constant="170" id="5d0-eI-fhj"/>
                                     <constraint firstAttribute="height" constant="29" id="WNC-pW-iAf"/>
                                 </constraints>
                                 <blurEffect style="light"/>
@@ -103,6 +108,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFE-6A-Cpv">
+                                <rect key="frame" x="325" y="555" width="30" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="⏮"/>
+                                <connections>
+                                    <action selector="undo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="BBh-LP-jEB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -111,7 +124,9 @@
                             <constraint firstItem="ZCE-wD-2E2" firstAttribute="bottom" secondItem="nGv-ui-K4i" secondAttribute="bottom" constant="20" id="EI9-ck-jaV"/>
                             <constraint firstItem="Hss-D4-YVK" firstAttribute="top" secondItem="ZCE-wD-2E2" secondAttribute="top" id="OgV-19-dSa"/>
                             <constraint firstItem="ZCE-wD-2E2" firstAttribute="bottom" secondItem="RK5-mG-jKn" secondAttribute="bottom" constant="20" id="Pfd-Nb-YUs"/>
+                            <constraint firstItem="ZCE-wD-2E2" firstAttribute="trailing" secondItem="RFE-6A-Cpv" secondAttribute="trailing" constant="20" id="SOZ-Gy-EIR"/>
                             <constraint firstItem="RK5-mG-jKn" firstAttribute="leading" secondItem="ZCE-wD-2E2" secondAttribute="leading" constant="16" id="SnR-GG-ypT"/>
+                            <constraint firstItem="nGv-ui-K4i" firstAttribute="top" secondItem="RFE-6A-Cpv" secondAttribute="bottom" constant="10" id="ZqF-h8-mBz"/>
                             <constraint firstItem="ZCE-wD-2E2" firstAttribute="trailing" secondItem="nGv-ui-K4i" secondAttribute="trailing" constant="17" id="i2L-km-UXq"/>
                             <constraint firstItem="Hss-D4-YVK" firstAttribute="leading" secondItem="ZCE-wD-2E2" secondAttribute="leading" id="tq9-FB-eeV"/>
                         </constraints>
