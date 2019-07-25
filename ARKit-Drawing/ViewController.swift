@@ -38,12 +38,23 @@ class ViewController: UIViewController {
     }
     
     // MARK:- Custom Methods
-    func reloadConfiguration() {
+    func reloadConfiguration(removeAnchors: Bool = false) {
         configuration.detectionImages = (objectMode == .image) ? ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) : nil
         
         configuration.planeDetection = [.horizontal]
         
-        sceneView.session.run(configuration)
+        let options: ARSession.RunOptions
+        
+        if removeAnchors {
+            options = [.removeExistingAnchors]
+            (planeNodes + placedNodes).forEach { $0.removeFromParentNode() }
+            planeNodes.removeAll()
+            placedNodes.removeAll()
+        } else {
+            options = []
+        }
+        
+        sceneView.session.run(configuration, options: options)
     }
     
     // MARK: - UIViewController Methods
@@ -213,6 +224,7 @@ extension ViewController: OptionsViewControllerDelegate {
     
     func resetScene() {
         dismiss(animated: true, completion: nil)
+        reloadConfiguration(removeAnchors: true )
     }
 }
 
