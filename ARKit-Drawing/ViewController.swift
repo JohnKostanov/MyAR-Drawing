@@ -206,7 +206,9 @@ extension ViewController: OptionsViewControllerDelegate {
     }
     
     func undoLastObject() {
-        
+        guard let lastNode = placedNodes.last else { return }
+        lastNode.removeFromParentNode()
+        placedNodes.removeLast()
     }
     
     func resetScene() {
