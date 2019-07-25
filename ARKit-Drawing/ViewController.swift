@@ -21,6 +21,9 @@ class ViewController: UIViewController {
         }
     }
     
+    var lastObjectPlacedPosition: SCNVector3?
+    let distanceThreshold: Float = 0.05
+    
     var placedNodes = [SCNNode]()
     var planeNodes = [SCNNode]()
     
@@ -72,9 +75,24 @@ class ViewController: UIViewController {
         guard let result = sceneView.hitTest(point, types: [.existingPlaneUsingExtent]).first else { return }
         
         let transform = result.worldTransform
-        node.position = SCNVector3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+        let position = SCNVector3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
         
-        addNode(node, to: rootNode)
+        var distance = Float.greatestFiniteMagnitude
+        
+        if let lastPosition = lastObjectPlacedPosition {
+            let deltaX = position.x - lastPosition.x
+            let deltaY = position.y - lastPosition.y
+            let deltaZ = position.z - lastPosition.z
+            let sum = deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ
+            distance = sqrt(sum)
+            
+        }
+        
+        if distanceThreshold < distance {
+            node.position = position
+            addNode(node, to: rootNode)
+            lastObjectPlacedPosition = node.position
+        }
     }
     
     func addNodeInFront(_ node: SCNNode) {
@@ -141,6 +159,11 @@ class ViewController: UIViewController {
         
         let newTouchPoint = touch.location(in: sceneView)
         addNode(node, at: newTouchPoint)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        lastObjectPlacedPosition = nil
     }
 
     // MARK: - Action
