@@ -131,6 +131,17 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        guard let node = selectedNode else { return }
+        guard let touch = touches.first else { return }
+        guard objectMode == .plane else { return }
+        
+        let newTouchPoint = touch.location(in: sceneView)
+        addNode(node, at: newTouchPoint)
+    }
 
     // MARK: - Action
     @IBAction func changeObjectMode(_ sender: UISegmentedControl) {
